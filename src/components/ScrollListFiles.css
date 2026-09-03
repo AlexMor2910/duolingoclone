@@ -1,0 +1,99 @@
+.fileRow {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 160px 170px 92px 92px;
+    gap: 16px;
+    align-items: center;
+    min-height: 72px;
+    padding: 12px 18px;
+    border-top: 1px solid var(--border);
+}
+
+.fileRow:first-child {
+    border-top: none;
+}
+
+.fileRow:hover {
+    background-color: #fbfcfe;
+}
+
+.fileNameLabelNames {
+    min-width: 0;
+    overflow: hidden;
+    color: var(--text);
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.numberQuestionsPerFileLabelNumber {
+    color: var(--muted);
+    font-weight: 700;
+}
+
+.desiredQuestionsEntry {
+    width: 100%;
+    min-height: 44px;
+    padding: 9px 12px;
+    color: var(--text);
+    background-color: #ffffff;
+    border: 1px solid #cfd7e3;
+    border-radius: var(--radius-small);
+    text-align: center;
+    transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.desiredQuestionsEntry:hover {
+    border-color: #9aa8ba;
+}
+
+.desiredQuestionsEntry:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(36, 71, 216, 0.12);
+    outline: none;
+}
+
+.selectFileButton {
+    position: relative;
+    width: 54px;
+    height: 30px;
+    padding: 0;
+    background-color: #cbd5e1;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background-color 180ms ease;
+}
+
+.selectFileButton::after {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 22px;
+    height: 22px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(23, 32, 51, 0.2);
+    content: "";
+    transition: transform 180ms ease;
+}
+
+.selectFileButton.active {
+    background-color: var(--success);
+}
+
+.selectFileButton.active::after {
+    transform: translateX(24px);
+}
+
+.selectFileButton.inactive {
+    background-color: #cbd5e1;
+}
+
+@media (max-width: 720px) {
+    .fileRow {grid-template-columns: minmax(0, 1fr) auto; gap: 12px; padding: 16px; border: 1px solid var(--border); border-radius: var(--radius-medium); background: var(--surface-soft);}
+    .fileRow:first-child {border-top: 1px solid var(--border);}
+    .fileNameLabelNames {grid-column: 1 / -1; white-space: normal; overflow-wrap: anywhere;}
+    .numberQuestionsPerFileLabelNumber::before {content: "Available: "; color: var(--muted); font-weight: 500;}
+    .desiredQuestionsEntry {grid-column: 1; text-align: left;}
+    .selectFileButton {grid-column: 2; grid-row: 3; align-self: center;}
+}

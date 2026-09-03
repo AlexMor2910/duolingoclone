@@ -1,0 +1,245 @@
+.gamePage {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+}
+
+.gameCard {
+    width: min(100%, 760px);
+    padding: clamp(24px, 5vw, 48px);
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-large);
+    box-shadow: var(--shadow);
+}
+
+.divisorLabels {
+    margin-bottom: 32px;
+}
+
+.labelPoints {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 14px 18px;
+    color: #344054;
+    background-color: var(--primary-soft);
+    border-radius: var(--radius-medium);
+    font-weight: 800;
+}
+
+.questionSection {
+    margin-bottom: 32px;
+}
+
+.questionEyebrow {
+    margin: 0 0 8px;
+    color: var(--muted);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.labelQuestion {
+    display: block;
+    margin: 0 0 24px;
+    font-size: clamp(1.6rem, 4vw, 2.35rem);
+    font-weight: 800;
+    line-height: 1.25;
+}
+
+.answerBuildArea {
+    min-height: 148px;
+    padding: 4px 2px 10px;
+    background-image: repeating-linear-gradient(to bottom, transparent 0, transparent 43px, #e6eaf0 44px, #e6eaf0 45px);
+}
+
+.answerWords,
+.wordBank {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.answerWords {
+    min-height: 132px;
+    align-content: flex-start;
+}
+
+.wordBank {
+    min-height: 88px;
+    margin-top: 28px;
+    padding-top: 4px;
+    align-content: flex-start;
+}
+
+.wordCard {
+    width: auto;
+    min-width: 0;
+    min-height: 36px;
+    padding: 7px 11px;
+    color: var(--text);
+    background-color: #ffffff;
+    border: 1px solid #d9e1eb;
+    border-radius: 9px;
+    box-shadow: 0 2px 0 #d9e1eb;
+    font-size: 0.92rem;
+    font-weight: 700;
+    line-height: 1.1;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 120ms ease, border-color 120ms ease, background-color 120ms ease, box-shadow 120ms ease;
+}
+
+.wordCard:hover:not(:disabled) {
+    background-color: #f7f9ff;
+    border-color: var(--primary);
+    box-shadow: 0 2px 0 var(--primary);
+    transform: translateY(-1px);
+}
+
+.wordCard:active:not(:disabled) {
+    box-shadow: 0 1px 0 #cbd5e1;
+    transform: translateY(1px);
+}
+
+.wordCard.correct,
+.wordCard.correct:disabled {
+    color: var(--success);
+    background-color: var(--success-soft);
+    border-color: #8bd4a8;
+    box-shadow: 0 2px 0 #8bd4a8;
+}
+
+.wordCard.incorrect,
+.wordCard.incorrect:disabled {
+    color: var(--danger);
+    background-color: var(--danger-soft);
+    border-color: #f5a8a2;
+    box-shadow: 0 2px 0 #f5a8a2;
+}
+
+.wordCard:disabled {
+    cursor: default;
+    opacity: 1;
+}
+
+.answerFeedback {
+    margin: 16px 0 0;
+    font-weight: 800;
+}
+
+.answerFeedback.correct {
+    color: var(--success);
+}
+
+.answerFeedback.incorrect {
+    color: var(--danger);
+}
+
+.gameActions {
+    display: grid;
+    grid-template-columns: 1fr 1.35fr 1fr;
+    gap: 12px;
+}
+
+.endGameButton,
+.nextButton {
+    min-height: 52px;
+    padding: 12px 18px;
+    border: none;
+    border-radius: var(--radius-medium);
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform 150ms ease, background-color 150ms ease, box-shadow 150ms ease;
+}
+
+.endGameButton {
+    color: #344054;
+    background-color: #eef2f7;
+}
+
+.endGameButton:hover:not(:disabled) {
+    background-color: #e2e8f0;
+    transform: translateY(-1px);
+}
+
+.nextButton.active {
+    color: #ffffff;
+    background-color: var(--primary);
+}
+
+.nextButton.active:hover {
+    background-color: var(--primary-hover);
+    box-shadow: 0 8px 20px rgba(36, 71, 216, 0.24);
+    transform: translateY(-1px);
+}
+
+
+.answerButton {
+    min-height: 52px;
+    padding: 12px 18px;
+    border: none;
+    border-radius: var(--radius-medium);
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform 150ms ease, background-color 150ms ease, box-shadow 150ms ease;
+    color: #344054;
+    background-color: #eef2f7;
+}
+
+.nextButton.inactive,
+.endGameButton:disabled {
+    color: #98a2b3;
+    background-color: #f2f4f7;
+    cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+    .gamePage {
+        align-items: start;
+        padding: 12px;
+    }
+
+    .gameCard {
+        padding: 24px 18px;
+        border-radius: 18px;
+    }
+
+    .labelPoints {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .answerBuildArea {
+        min-height: 136px;
+    }
+
+    .answerWords {
+        min-height: 120px;
+    }
+
+    .wordBank {
+        min-height: 76px;
+        margin-top: 22px;
+    }
+
+    .wordCard {
+        min-height: 34px;
+        padding: 6px 10px;
+        font-size: 0.88rem;
+    }
+
+    .gameActions {
+        grid-template-columns: 1fr;
+    }
+
+    .nextButton {
+        order: -1;
+    }
+}

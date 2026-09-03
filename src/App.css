@@ -1,0 +1,59 @@
+:root {
+    --primary: #2447d8;
+    --primary-hover: #1935ae;
+    --primary-soft: #d7eef7;
+    --success: #157347;
+    --success-soft: #eaf8ef;
+    --danger: #b42318;
+    --danger-soft: #fee4e2;
+    --text: #172033;
+    --muted: #68768a;
+    --surface: #ffffff;
+    --surface-soft: #f8fafc;
+    --border: #e3e8ef;
+    --shadow: 0 16px 45px rgba(23, 32, 51, 0.1);
+    --radius-large: 24px;
+    --radius-medium: 14px;
+    --radius-small: 10px;
+    font-family: Arial, sans-serif;
+    color: var(--text);
+    background-color: #f4f7fb;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-width: 320px;
+    min-height: 100%;
+    background-color: #f4f7fb;
+}
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+    background:
+            radial-gradient(circle at top left, rgba(36, 71, 216, 0.08), transparent 34rem),
+            #f4f7fb;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button,
+label[for] {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+input:focus-visible,
+label[for]:focus-visible {
+    outline: 3px solid rgba(36, 71, 216, 0.3);
+    outline-offset: 3px;
+}
